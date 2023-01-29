@@ -18,6 +18,7 @@ public class MyController {
 	@Autowired
 	private EmpService service;
 	
+	//call home page
 	@GetMapping("/home")
 	public String home(Model m) {
 		List<Employee> emp = service.getAllEmp();
@@ -25,11 +26,13 @@ public class MyController {
 		return "index";
 	}
 	
+	//add new emp
 	@GetMapping("/addEmp")
 	public String addEmpForm() {
 		return "addEmp";
 	}
 	
+	//new registration
 	@PostMapping("/register")
 	public String empRegister(@ModelAttribute Employee e) {
 		System.out.print(e);
